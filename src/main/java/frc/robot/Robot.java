@@ -119,7 +119,6 @@ public class Robot extends TimedRobot {
     
     conveyer = new Victor(RobotMap.conveyerMotor);
 
-    climb = new DoubleSolenoid(0, 1);
 
 
     robotDrive = new MecanumDrive(frontLeft, backLeft, frontRight, backRight);
