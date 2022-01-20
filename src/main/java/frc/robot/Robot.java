@@ -91,7 +91,7 @@ public class Robot extends TimedRobot {
     //camera1 = new UsbCamera("cam1", 0);
     //System.out.println(camera1.isEnabled());
     //camera2 = new UsbCamera("cam2", 1);
-    camServer = CameraServer.getInstance();
+   // camServer = CameraServer.getInstance();
     server = CameraServer.getServer();
     //System.out.println(camera1.isEnabled());
     //System.out.println(camera2.isEnabled());
@@ -754,45 +754,45 @@ public class Robot extends TimedRobot {
     // Xbox controller X button runs the intake
     if (xbox2.getAButton())
     {
-      intake.setSpeed(-1);
+    // intake.setSpeed(-1);
     }
     // Xbox controller A Button reverses intake (in case ball gets stuck in intake)
     else if (xbox2.getBButton())
     {
-      intake.setSpeed(0.25);
+    //  intake.setSpeed(0.25);
     }
     // Else the motor stops
     else
     {
-      intake.setSpeed(0);
+      //intake.setSpeed(0);
     }
 
     // Xbox controller B button moves conveyer up 
     if (xbox2.getXButton()) 
     {
-      conveyer.setSpeed(-1);
+     // conveyer.setSpeed(-1);
     }
     // Xbox controller Y button moves conveyer down
     else if (xbox2.getYButton())
     {
-      conveyer.setSpeed(1);
+     // conveyer.setSpeed(1);
     }
     // Else the motor stops
     else
     {
-      conveyer.setSpeed(0);
+     // conveyer.setSpeed(0);
     }
 
     // Xbox controller left bumper runs shooter
     if (xbox2.getLeftBumper()) {
-      shooter1.setSpeed(0.8);
-      shooter2.setSpeed(-0.8);
+     // shooter1.setSpeed(0.8);
+      //shooter2.setSpeed(-0.8);
     }
     // Xbox controller right bumper stops shooter
     else if (xbox2.getRightBumper())
     {
-      shooter1.setSpeed(0);
-      shooter2.setSpeed(0);
+     // shooter1.setSpeed(0);
+     // shooter2.setSpeed(0);
     }
 
     if (xbox1.getYButton()) 
