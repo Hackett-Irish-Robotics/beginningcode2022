@@ -60,12 +60,12 @@ public class Robot extends TimedRobot {
   XboxController xbox1;
   XboxController xbox2;
   
-  Victor intake;
-  
+  Victor shooterLeft;
+  Victor shooterRight;
+
   Victor shooter1;
   Victor shooter2;
   
-  Victor conveyer;
   
   DoubleSolenoid climb;
 
@@ -112,12 +112,12 @@ public class Robot extends TimedRobot {
     backLeft = new Victor(RobotMap.leftBackMotor);
     backRight = new Victor(RobotMap.rightBackMotor);
 
-    intake = new Victor(RobotMap.intakeMotor);
-    
+    shooterLeft = new Victor(RobotMap.leftShooterMotor);
+    shooterRight = new Victor(RobotMap.rightShooterMotor);
+
     shooter1 = new Victor(RobotMap.shooterMotor1);
     shooter2 = new Victor(RobotMap.shooterMotor2);
     
-    conveyer = new Victor(RobotMap.conveyerMotor);
 
 
 
@@ -629,7 +629,7 @@ public class Robot extends TimedRobot {
     }
   }
 
-  /**
+  /*
    * This function is called periodically during autonomous.
    */
   @Override
@@ -751,20 +751,24 @@ public class Robot extends TimedRobot {
       }
     }
 
-    // Xbox controller X button runs the intake
+    // Xbox controller A button runs the intake
     if (xbox2.getAButton())
     {
-    // intake.setSpeed(-1);
+       shooterLeft.set(1);    
+       shooterRight.set(-1);
+
     }
-    // Xbox controller A Button reverses intake (in case ball gets stuck in intake)
+    // Xbox controller B Button reverses intake (in case ball gets stuck in intake)
     else if (xbox2.getBButton())
     {
-    //  intake.setSpeed(0.25);
+      shooterLeft.set(-0.2);    
+      shooterRight.set(0.2);
     }
     // Else the motor stops
     else
     {
-      //intake.setSpeed(0);
+      shooterLeft.set(0);
+      shooterRight.set(0);
     }
 
     // Xbox controller B button moves conveyer up 
