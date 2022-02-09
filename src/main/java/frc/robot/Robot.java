@@ -359,6 +359,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
+  }
 
   @Override
   public void teleopInit() {
@@ -391,39 +392,21 @@ public class Robot extends TimedRobot {
     //System.out.println(speedAdj);
     robotDrive.driveCartesian(speedCap*xbox1.getRawAxis(0), -speedCap*xbox1.getRawAxis(1), spinCap*xbox1.getRawAxis(4));
 
-    // Area-based adjusting (distance from target)
-    // 1.893410
-    if (xbox1.getXButton()) {
-      double error = limeArea - 1.89;
-      if ((Math.abs(error) > 0.1) && limeHasTarget) {
-        if (error > 0.5) {
-          robotDrive.driveCartesian(0, -0.3, 0);
-        }
-        else if (error > 0.25 && error < 0.5) {
-          robotDrive.driveCartesian(0, -0.2, 0);
-        }
-        else if (error > 0.1 && error < 0.25) {
-          robotDrive.driveCartesian(0, -0.1, 0);
-        }
-        else {
-          robotDrive.driveCartesian(0, 0.2, 0);
-        }
-        //robotDrive.driveCartesian(0, 0, ((limeX > 0) ? 0.1 : -0.1)+(limeX/44.7));
-      }
-    }
 
     // Xbox controller A button runs the shooter
     if (xbox2.getAButton())
     {
-       shooterLeft.set(1);    
-       shooterRight.set(-1);
+     //  shooterLeft.set(-1);    
+   //    shooterRight.set(-1);
+        System.out.println("A Button");
 
     }
     // Xbox controller B Button reverses shooter (in case ball gets stuck in intake)
     else if (xbox2.getBButton())
     {
-      shooterLeft.set(-0.2);    
-      shooterRight.set(0.2);
+      shooterLeft.set(0.2);   
+      System.out.println("B button"); 
+   //   shooterRight.set(0.2);
     }
     // Else the motor stops
     else
@@ -432,18 +415,20 @@ public class Robot extends TimedRobot {
       shooterRight.set(0);
     }
 
-    // Xbox controller X button runs the shooter
+    // Xbox controller X button runs the shooter TESTING ONLY
     if (xbox2.getXButton())
     {
-       shooterLeft.set(1);
+       shooterRight.set(1);
+       System.out.println("X button"); 
 
     }
-    // Xbox controller Y Button reverses shooter (in case ball gets stuck in intake)
+    // Xbox controller Y Button reverses shooter (in case ball gets stuck in intake) - TESTING ONLY
     else if (xbox2.getYButton())
     { 
-      shooterRight.set(0.2);
+      shooterRight.set(-0.2);
+      System.out.println("Y button"); 
     }
-    // Else the motor stops
+    // Else the motor stops - TESTING ONLY
     else
     {
       shooterLeft.set(0);
