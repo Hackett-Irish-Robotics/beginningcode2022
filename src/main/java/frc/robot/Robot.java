@@ -104,7 +104,7 @@ public class Robot extends TimedRobot {
     CameraServer.addSwitchedCamera("Camera View");
     CameraServer.getVideo(camera1);
 
-    xbox1 = new XboxController(RobotMap.xboxController1);
+    //xbox1 = new XboxController(RobotMap.xboxController1);
     xbox2 = new XboxController(RobotMap.xboxController2);
 
     frontLeft = new Victor(RobotMap.leftFrontMotor);
@@ -390,7 +390,7 @@ public class Robot extends TimedRobot {
 
 
     //System.out.println(speedAdj);
-    robotDrive.driveCartesian(speedCap*xbox1.getRawAxis(0), -speedCap*xbox1.getRawAxis(1), spinCap*xbox1.getRawAxis(4));
+    robotDrive.driveCartesian(speedCap*xbox2.getRawAxis(0), -speedCap*xbox2.getRawAxis(1), spinCap*xbox2.getRawAxis(4));
 
 
     // Xbox controller A button runs the shooter
@@ -404,35 +404,35 @@ public class Robot extends TimedRobot {
     // Xbox controller B Button reverses shooter (in case ball gets stuck in intake)
     else if (xbox2.getBButton())
     {
-      shooterLeft.set(0.2);   
+      //shooterLeft.set(0.2);   
       System.out.println("B button"); 
    //   shooterRight.set(0.2);
     }
     // Else the motor stops
     else
     {
-      shooterLeft.set(0);
-      shooterRight.set(0);
+      //shooterLeft.set(0);
+      //shooterRight.set(0);
     }
 
     // Xbox controller X button runs the shooter TESTING ONLY
     if (xbox2.getXButton())
     {
-       shooterRight.set(1);
+       //shooterRight.set(1);
        System.out.println("X button"); 
 
     }
     // Xbox controller Y Button reverses shooter (in case ball gets stuck in intake) - TESTING ONLY
     else if (xbox2.getYButton())
     { 
-      shooterRight.set(-0.2);
+      //shooterRight.set(-0.2);
       System.out.println("Y button"); 
     }
     // Else the motor stops - TESTING ONLY
     else
     {
-      shooterLeft.set(0);
-      shooterRight.set(0);
+      //shooterLeft.set(0);
+      //shooterRight.set(0);
     }
 
   
