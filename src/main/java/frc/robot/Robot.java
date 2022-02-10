@@ -366,7 +366,7 @@ public class Robot extends TimedRobot {
     // This makes sure that the autonomous stops running when
     // teleop starts running. If you want the autonomous to
     // continue until interrupted by another command, remove
-    // this line or comment it out.
+    // this line or comment it out
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
@@ -377,7 +377,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-      System.out.println("it is working");
     Scheduler.getInstance().run();
 
     robotDrive.setSafetyEnabled(false);
@@ -399,14 +398,13 @@ public class Robot extends TimedRobot {
     {
      //  shooterLeft.set(-1);    
    //    shooterRight.set(-1);
-        System.out.println("A Button");
+  
 
     }
     // Xbox controller B Button reverses shooter (in case ball gets stuck in intake)
     else if (xbox2.getBButton())
     {
-      //shooterLeft.set(0.2);   
-      System.out.println("B button"); 
+      //shooterLeft.set(0.2);  
    //   shooterRight.set(0.2);
     }
     // Else the motor stops
@@ -420,14 +418,12 @@ public class Robot extends TimedRobot {
     if (xbox2.getXButton())
     {
        //shooterRight.set(1);
-       System.out.println("X button"); 
 
     }
     // Xbox controller Y Button reverses shooter (in case ball gets stuck in intake) - TESTING ONLY
     else if (xbox2.getYButton())
     { 
       //shooterRight.set(-0.2);
-      System.out.println("Y button"); 
     }
     // Else the motor stops - TESTING ONLY
     else
