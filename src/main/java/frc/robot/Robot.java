@@ -63,8 +63,7 @@ public class Robot extends TimedRobot {
   Victor shooterLeft;
   Victor shooterRight;
 
-  Victor shooter1;
-  Victor shooter2;
+
   
   
   DoubleSolenoid climb;
@@ -104,7 +103,7 @@ public class Robot extends TimedRobot {
     CameraServer.addSwitchedCamera("Camera View");
     CameraServer.getVideo(camera1);
 
-    //xbox1 = new XboxController(RobotMap.xboxController1);
+    xbox1 = new XboxController(RobotMap.xboxController1);
     xbox2 = new XboxController(RobotMap.xboxController2);
 
     frontLeft = new Victor(RobotMap.leftFrontMotor);
@@ -114,9 +113,6 @@ public class Robot extends TimedRobot {
 
     shooterLeft = new Victor(RobotMap.leftShooterMotor);
     shooterRight = new Victor(RobotMap.rightShooterMotor);
-
-    shooter1 = new Victor(RobotMap.shooterMotor1);
-    shooter2 = new Victor(RobotMap.shooterMotor2);
     
     robotDrive = new MecanumDrive(frontLeft, backLeft, frontRight, backRight);
     //robotDrive.setMaxOutput(.25);
@@ -394,42 +390,42 @@ public class Robot extends TimedRobot {
 
 
     // Xbox controller A button runs the shooter
-    if (xbox2.getAButton())
+    if (xbox2.getAButton() || xbox1.getAButton() )
     {
-     //  shooterLeft.set(-1);    
-   //    shooterRight.set(-1);
+       shooterLeft.set(-1);    
+       shooterRight.set(-1);
   
 
     }
     // Xbox controller B Button reverses shooter (in case ball gets stuck in intake)
     else if (xbox2.getBButton())
     {
-      //shooterLeft.set(0.2);  
-   //   shooterRight.set(0.2);
+      shooterLeft.set(0.2);  
+      shooterRight.set(0.2);
     }
     // Else the motor stops
     else
     {
-      //shooterLeft.set(0);
-      //shooterRight.set(0);
+      shooterLeft.set(0);
+      shooterRight.set(0);
     }
 
     // Xbox controller X button runs the shooter TESTING ONLY
     if (xbox2.getXButton())
     {
-       //shooterRight.set(1);
+       shooterRight.set(1);
 
     }
     // Xbox controller Y Button reverses shooter (in case ball gets stuck in intake) - TESTING ONLY
     else if (xbox2.getYButton())
     { 
-      //shooterRight.set(-0.2);
+      shooterRight.set(-0.2);
     }
     // Else the motor stops - TESTING ONLY
     else
     {
-      //shooterLeft.set(0);
-      //shooterRight.set(0);
+      shooterLeft.set(0);
+      shooterRight.set(0);
     }
 
   

@@ -37,12 +37,9 @@ public class RobotMap {
 
     public static final int leftShooterMotor = 5;
     public static final int rightShooterMotor = 6;
-
-    public static final int shooterMotor1 = 7;
-    public static final int shooterMotor2 = 8;
     
-    public static final int xboxController1 = 0;
-    public static final int xboxController2 = 1;
+    public static final int xboxController1 = 1;
+    public static final int xboxController2 = 2;
 
 
 
