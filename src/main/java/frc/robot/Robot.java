@@ -103,31 +103,35 @@ public class Robot extends TimedRobot {
     CameraServer.addSwitchedCamera("Camera View");
     CameraServer.getVideo(camera1);
 
+    //Define the different controllers as seperate and distinct inputs
     xbox1 = new XboxController(RobotMap.xboxController1);
     xbox2 = new XboxController(RobotMap.xboxController2);
 
+    //Define the motors to the robot as a thing on the robot
     frontLeft = new Victor(RobotMap.leftFrontMotor);
     frontRight = new Victor(RobotMap.rightFrontMotor);
     backLeft = new Victor(RobotMap.leftBackMotor);
     backRight = new Victor(RobotMap.rightBackMotor);
 
+    //Define the shooters to the robot as motors
     shooterLeft = new Victor(RobotMap.leftShooterMotor);
     shooterRight = new Victor(RobotMap.rightShooterMotor);
     
+    //Tells the robot that we are using a mechanum system
     robotDrive = new MecanumDrive(frontLeft, backLeft, frontRight, backRight);
-    //robotDrive.setMaxOutput(.25);
+    //robotDrive.setMaxOutput(0.25);
 
-    // Limelight stuff
+    //Limelight stuff, idk what it does im new
     table = NetworkTableInstance.getDefault().getTable("limelight");
     tx = table.getEntry("tx");
     ty = table.getEntry("ty");
     ta = table.getEntry("ta");
     tv = table.getEntry("tv");
 
-    // Instantiate our input/output.
+    //Instantiate our input/output.
     m_oi = new OI();
 
-    // chooser.addOption("My Auto", new MyAutoCommand());
+    //chooser.addOption("My Auto", new MyAutoCommand());
     autoRightStartCommand = new Command(){
     
       @Override
