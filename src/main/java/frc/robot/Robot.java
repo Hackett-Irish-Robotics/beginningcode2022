@@ -376,7 +376,7 @@ public class Robot extends TimedRobot {
     if (xbox1.getAButton())
     {
        shooterLeft.set(1);    
-       shooterRight.set(-1);
+       shooterRight.set(1);
   
 
     }
@@ -384,7 +384,7 @@ public class Robot extends TimedRobot {
     else if (xbox1.getBButton())
     {
       shooterLeft.set(-1);  
-      shooterRight.set(1);
+      shooterRight.set(-1);
     }
     // Else the motor stops
     else
