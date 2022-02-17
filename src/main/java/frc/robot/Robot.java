@@ -31,6 +31,7 @@ import edu.wpi.first.wpilibj.XboxController;
 //import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.motorcontrol.PWMVenom;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -60,8 +61,8 @@ public class Robot extends TimedRobot {
   XboxController xbox1;
   XboxController xbox2;
   
-  Victor shooterLeft;
-  Victor shooterRight;
+  PWMVenom shooterLeft;
+  PWMVenom shooterRight;
 
   Victor intake;
   
@@ -114,8 +115,8 @@ public class Robot extends TimedRobot {
     backRight = new Victor(RobotMap.rightBackMotor);
 
     //Define the shooters to the robot as motors
-    shooterLeft = new Victor(RobotMap.leftShooterMotor);
-    shooterRight = new Victor(RobotMap.rightShooterMotor);
+    shooterLeft = new PWMVenom(RobotMap.leftShooterMotor);
+    shooterRight = new PWMVenom(RobotMap.rightShooterMotor);
     
     //Define the intake
     intake = new Victor(RobotMap.intakeMotor);
@@ -371,17 +372,18 @@ public class Robot extends TimedRobot {
     //System.out.println(speedAdj); this is where we are driving with xbox1
     robotDrive.driveCartesian(speedCap*xbox2.getRawAxis(0), -speedCap*xbox2.getRawAxis(1), spinCap*xbox2.getRawAxis(4));
 
+System.out.println("controller 1A = " + xbox1.getAButton() + " controller 2A = "  + xbox2.getAButton());
 
     // Xbox controller A button runs the shooter
-    if (xbox1.getAButton())
-    {
-       shooterLeft.set(1);    
-       shooterRight.set(1);
+   // if (xbox1.getAButton())
+    
+       shooterRight.set(1);    
+       shooterLeft.set(0.5);
   
 
-    }
+    
     // Xbox controller B Button reverses shooter (in case ball gets stuck in intake)
-    else if (xbox1.getBButton())
+     if (xbox1.getBButton()) //else
     {
       shooterLeft.set(-1);  
       shooterRight.set(-1);
