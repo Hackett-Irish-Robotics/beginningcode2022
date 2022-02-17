@@ -147,7 +147,7 @@ public class Robot extends TimedRobot {
       @Override
       protected void execute() {
         
-        //Grabs the current time in terms of cT :>                                     ------>                                                      (thats just an emoticon dont worry about it. Jack wants to say something now: Cars are so awful for everything! Public transit is the way forward. Walkability is one of the most important aspects of a city. It makes cities feel more like a community, makes them prettier, and more peaceful. This is supported by the fact that existing areas like this are in very high demand with very high prices. Thank you for coming to my TED talk. ;) 
+        //defines something
         double cT = t.get();
         
         
