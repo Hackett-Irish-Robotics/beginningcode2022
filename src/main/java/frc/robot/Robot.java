@@ -376,15 +376,15 @@ public class Robot extends TimedRobot {
     if (xbox1.getAButton())
     {
        shooterLeft.set(1);    
-       shooterRight.set(-1);
+       shooterRight.set(1);
   
 
     }
     // Xbox controller B Button reverses shooter (in case ball gets stuck in intake)
     else if (xbox1.getBButton())
     {
-      shooterLeft.set(-0.2);  
-      shooterRight.set(0.2);
+      shooterLeft.set(1);  
+      shooterRight.set(1);
     }
     // Else the motor stops
     else
