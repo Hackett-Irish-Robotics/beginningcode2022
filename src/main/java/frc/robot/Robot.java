@@ -155,7 +155,7 @@ public class Robot extends TimedRobot {
       }
     };
 
-    autoLeftStartCommand = new Command(){
+    /**autoLeftStartCommand = new Command(){
     
       @Override
       protected boolean isFinished() {
@@ -195,13 +195,10 @@ public class Robot extends TimedRobot {
         }
       }
     }; 
-
-    m_chooser.addOption("Auto Right Start", autoRightStartCommand);
-    m_chooser.addOption("Auto Left Start", autoLeftStartCommand);
-    m_chooser.addOption("Auto Slalom Start", autoSlalom);
-    m_chooser.addOption("Auto Barrel Start", autoBarrel);
-    m_chooser.addOption("Auto Bounce Start", autoBounce);
-    SmartDashboard.putData("Auto mode", m_chooser);
+*/
+  //  m_chooser.addOption("Auto Right Start", autoRightStartCommand);
+    //m_chooser.addOption("Auto Left Start", autoLeftStartCommand);
+    //SmartDashboard.putData("Auto mode", m_chooser);
   }
 
   /**
@@ -367,7 +364,7 @@ public class Robot extends TimedRobot {
     // speed cap is an extra option for a hard-coded speed limit that is applied to the throttle
     //double stickSlider = stick.getThrottle();
     double speedCap = 1;
-    double spinCap = .69;
+    double spinCap = .7;
     //double speedAdj = speedCap * (1 - ((stickSlider + 1) / 2));
 
 
