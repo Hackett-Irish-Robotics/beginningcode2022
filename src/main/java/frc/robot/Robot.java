@@ -125,11 +125,11 @@ public class Robot extends TimedRobot {
     //robotDrive.setMaxOutput(0.25);
 
     //Limelight stuff, idk what it does im new
-    table = NetworkTableInstance.getDefault().getTable("limelight");
-    tx = table.getEntry("tx");
-    ty = table.getEntry("ty");
-    ta = table.getEntry("ta");
-    tv = table.getEntry("tv");
+   // table = NetworkTableInstance.getDefault().getTable("limelight");
+    //tx = table.getEntry("tx");
+    //ty = table.getEntry("ty");
+    //ta = table.getEntry("ta");
+    //tv = table.getEntry("tv");
 
     //Instantiate our input/output.
     m_oi = new OI();
@@ -211,7 +211,7 @@ public class Robot extends TimedRobot {
    *
    * <p>This runs after the mode specific periodic functions, but before
    * LiveWindow and SmartDashboard integrated updating.
-   */
+   
   @Override
   public void robotPeriodic() {
     // Limelight stuff
@@ -372,7 +372,7 @@ public class Robot extends TimedRobot {
 
 
     //System.out.println(speedAdj);
-    robotDrive.driveCartesian(speedCap*xbox2.getRawAxis(0), -speedCap*xbox2.getRawAxis(1), spinCap*xbox2.getRawAxis(4));
+    robotDrive.driveCartesian(speedCap*xbox1.getRawAxis(0), -speedCap*xbox1.getRawAxis(1), spinCap*xbox1.getRawAxis(4));
 
 
     // Xbox controller A button runs the shooter
@@ -399,13 +399,13 @@ public class Robot extends TimedRobot {
     // Xbox controller X button runs the intake
     if (xbox2.getXButton())
     {
-       shooterRight.set(1);
+       intake.set(1);
 
     }
     // Xbox controller Y Button reverses shooter (in case ball gets stuck in intake) - TESTING ONLY
     else if (xbox2.getYButton())
     { 
-      shooterRight.set(-0.2);
+      intake.set(-0.2);
     }
     // Else the motor stops - TESTING ONLY
     else
