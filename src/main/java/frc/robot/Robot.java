@@ -369,21 +369,21 @@ public class Robot extends TimedRobot {
 
 
     //System.out.println(speedAdj); this is where we are driving with xbox1
-    robotDrive.driveCartesian(speedCap*xbox1.getRawAxis(0), -speedCap*xbox1.getRawAxis(1), spinCap*xbox1.getRawAxis(4));
+    robotDrive.driveCartesian(speedCap*xbox2.getRawAxis(0), -speedCap*xbox2.getRawAxis(1), spinCap*xbox2.getRawAxis(4));
 
 
     // Xbox controller A button runs the shooter
-    if (xbox2.getAButton())
+    if (xbox1.getAButton())
     {
-       shooterLeft.set(-1);    
+       shooterLeft.set(1);    
        shooterRight.set(-1);
   
 
     }
     // Xbox controller B Button reverses shooter (in case ball gets stuck in intake)
-    else if (xbox2.getBButton())
+    else if (xbox1.getBButton())
     {
-      shooterLeft.set(0.2);  
+      shooterLeft.set(-0.2);  
       shooterRight.set(0.2);
     }
     // Else the motor stops
@@ -394,13 +394,13 @@ public class Robot extends TimedRobot {
     }
 
     // Xbox controller X button runs the intake
-    if (xbox2.getXButton())
+    if (xbox1.getXButton())
     {
        intake.set(1);
 
     }
     // Xbox controller Y Button reverses shooter (in case ball gets stuck in intake) - TESTING ONLY
-    else if (xbox2.getYButton())
+    else if (xbox1.getYButton())
     { 
       intake.set(-0.2);
     }
