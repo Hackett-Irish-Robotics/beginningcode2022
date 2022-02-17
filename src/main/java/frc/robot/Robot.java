@@ -63,7 +63,7 @@ public class Robot extends TimedRobot {
   Victor shooterLeft;
   Victor shooterRight;
 
-
+  Victor intake;
   
   
   DoubleSolenoid climb;
@@ -117,6 +117,9 @@ public class Robot extends TimedRobot {
     shooterLeft = new Victor(RobotMap.leftShooterMotor);
     shooterRight = new Victor(RobotMap.rightShooterMotor);
     
+    //Define the intake
+    intake = new Victor(RobotMap.intakeMotor);
+
     //Tells the robot that we are using a mechanum system
     robotDrive = new MecanumDrive(frontLeft, backLeft, frontRight, backRight);
     //robotDrive.setMaxOutput(0.25);
@@ -134,6 +137,7 @@ public class Robot extends TimedRobot {
     //chooser.addOption("My Auto", new MyAutoCommand());
     autoRightStartCommand = new Command(){
     
+      //Don't change this, it is implamented in another file
       @Override
       protected boolean isFinished() {
         // Auto-generated method stub
@@ -142,34 +146,12 @@ public class Robot extends TimedRobot {
 
       @Override
       protected void execute() {
+        
+        //Grabs the current time in terms of cT :>                                     ------>                                                      (thats just an emoticon dont worry about it. Jack wants to say something now: Cars are so awful for everything! Public transit is the way forward. Walkability is one of the most important aspects of a city. It makes cities feel more like a community, makes them prettier, and more peaceful. This is supported by the fact that existing areas like this are in very high demand with very high prices. Thank you for coming to my TED talk. ;) 
         double cT = t.get();
-        if (cT < 1) {
-          robotDrive.driveCartesian(0, -0.25, 0);
-        }
-        else if (cT > 1 && cT < 3) {
-          robotDrive.driveCartesian(0, 0, 0);
-        }
-        else if (cT > 3 && cT < 5) {
-          robotDrive.driveCartesian(0.25, 0, 0);
-        }
-        else if (cT > 5 && cT < 6) {
-          robotDrive.driveCartesian(0, -0.25, 0);
-        }
-        else if (cT > 6 && cT < 8) {
-          robotDrive.driveCartesian(0, 0, -0.25);
-        }
-        else if (cT > 8 && cT < 8.25) {
-          robotDrive.driveCartesian(0, 0.75, 0);
-        }
-        else if (cT > 8.25 && cT < 9) {
-          robotDrive.driveCartesian(-0.25, 0, 0);
-        }
-        else if (cT > 9 && cT < 10) {
-          robotDrive.driveCartesian(0, -0.25, 0);
-        }
-        else {
-          robotDrive.driveCartesian(0, 0, 0);
-        }
+        
+        
+
       }
     };
 
@@ -394,7 +376,7 @@ public class Robot extends TimedRobot {
 
 
     // Xbox controller A button runs the shooter
-    if (xbox2.getAButton() || xbox1.getAButton() )
+    if (xbox2.getAButton())
     {
        shooterLeft.set(-1);    
        shooterRight.set(-1);
@@ -414,7 +396,7 @@ public class Robot extends TimedRobot {
       shooterRight.set(0);
     }
 
-    // Xbox controller X button runs the shooter TESTING ONLY
+    // Xbox controller X button runs the intake
     if (xbox2.getXButton())
     {
        shooterRight.set(1);

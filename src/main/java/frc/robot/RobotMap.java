@@ -30,14 +30,20 @@ public class RobotMap {
   // We need to make sure these are always linked correctly or
   // we could damage the motors.
 
+    //Tells the program that there is a drive motor connected to their respective victors (the ports on the RoboRio)
     public static final int leftFrontMotor = 1;
     public static final int rightFrontMotor = 2;
     public static final int leftBackMotor = 3;
     public static final int rightBackMotor = 4;
 
+    //Tells the program that there is a shooter motor connected to their respective victors (the ports on the RoboRio)
     public static final int leftShooterMotor = 5;
     public static final int rightShooterMotor = 6;
     
+    //Tells the program that there is a drive motor connected to their respective victors (the ports on the RoboRio)
+    public static final int intakeMotor = 7;
+    
+    //Tells the program that there are two different controllers connected
     public static final int xboxController1 = 1;
     public static final int xboxController2 = 2;
 
