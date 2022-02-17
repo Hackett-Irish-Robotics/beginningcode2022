@@ -37,8 +37,8 @@ public class RobotMap {
     public static final int rightBackMotor = 4;
 
     //Tells the program that there is a shooter motor connected to their respective victors (the ports on the RoboRio)
-    public static final int leftShooterMotor = 5;
-    public static final int rightShooterMotor = 6;
+    public static final int leftShooterMotor = 6;
+    public static final int rightShooterMotor = 5;
     
     //Tells the program that there is a drive motor connected to their respective victors (the ports on the RoboRio)
     public static final int intakeMotor = 7;
