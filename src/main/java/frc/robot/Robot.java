@@ -368,7 +368,7 @@ public class Robot extends TimedRobot {
     //double speedAdj = speedCap * (1 - ((stickSlider + 1) / 2));
 
 
-    //System.out.println(speedAdj);
+    //System.out.println(speedAdj); this is where we are driving with xbox1
     robotDrive.driveCartesian(speedCap*xbox1.getRawAxis(0), -speedCap*xbox1.getRawAxis(1), spinCap*xbox1.getRawAxis(4));
 
 
